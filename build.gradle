@@ -1,0 +1,28 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.5.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.serkaneren'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	lombokVersion = '1.18.2'
+}
+
+
+dependencies {
+	annotationProcessor(
+			"org.projectlombok:lombok:${lombokVersion}",
+	)
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compile("org.projectlombok:lombok:${lombokVersion}")
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
