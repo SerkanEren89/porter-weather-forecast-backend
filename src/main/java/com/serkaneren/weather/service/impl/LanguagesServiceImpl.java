@@ -9,13 +9,20 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Language service implementation
+ *
+ * @author eren
+ */
 @Service
 public class LanguagesServiceImpl implements LanguagesService {
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<LanguageDto> getLanguages() {
-        return Arrays.stream(LanguageEnum.values()).map(lang -> {
-         return new LanguageDto(lang.getAbbr(), lang.getLang());
-        }).collect(Collectors.toList());
+        return Arrays.stream(LanguageEnum.values()).map(lang ->
+                new LanguageDto(lang.getAbbr(), lang.getLang())).collect(Collectors.toList());
     }
 }
